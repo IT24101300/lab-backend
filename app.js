@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var cors = require('cors');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -15,6 +16,14 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('MongoDB connection error:', err));
 
 var app = express();
+
+// Enable CORS for frontend
+app.use(cors());
+
+// API status endpoint
+app.get('/api/status', function(req, res) {
+  res.json({ status: 'connected', message: 'Backend is working!' });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
