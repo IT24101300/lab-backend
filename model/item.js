@@ -4,6 +4,6 @@ const ItemSchema = new mongoose.Schema({
 name: { type: String, required: true },
 description: { type: String, required: true },
 price: { type: Number, required: true }, 
-date: { type: date, required: true }  // ← NEW FIELD YOU ADD
+date: { type: Date, required: true }
 }, { timestamps: true });
 module.exports = mongoose.model('Item', ItemSchema);
