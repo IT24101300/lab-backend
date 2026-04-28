@@ -15,7 +15,8 @@ router.post('/', async (req, res) => {
 const item = new Item({
 name: req.body.name,
 description: req.body.description,
-price: req.body.price,   
+price: req.body.price,
+date: req.body.date,   
 // will work once you add price to the model
 });
 try {
